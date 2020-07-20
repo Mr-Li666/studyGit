@@ -1,0 +1,14 @@
+1. 新建一个仓库，然后将本地代码提交上去（此时仓库没有东西，是一个裸仓）
+（1）在github上建一个仓库，然后复制一下地址
+（2）在你要传的文件夹里，git bash here，先git init生成一个本地仓库，用于追踪本地文件的
+（3）将本地仓库和远程仓库关联：git remote add origin github地址
+（4）git remote -v  查看关联的地址。 然后git add .  提交到暂存区
+（5）git commit -m"说明一下"
+（6）git pull --rebase origin master 。 一定要加这句，否则会报错。是因为github中有readme文件，这个文件此时不在这个仓库。通过这个命令可以进行合并
+（7）git push origin master
+
+2. 此时仓库有东西后，将代码拉下来再传上去
+（1） git clone 仓库地址
+（2）改动了之后，可以git status 看一下，哪个文件改动了，然后再上传 git add test.txt
+（3）git commit -m"说明一下"
+（4）git push origin master
