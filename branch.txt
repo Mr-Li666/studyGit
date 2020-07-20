@@ -1,0 +1,7 @@
+新建一个分支：git branch develop
+切换分支：git checkout develop
+查看分支日志（简易日志）：git log --oneline    完整日志：git log
+分支合并：git merge 分支a  合并分支a
+分支合并的两种方式：
+（1）快速合并：主分支没动
+（2）三方合并：
