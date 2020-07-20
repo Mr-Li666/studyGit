@@ -1,0 +1,56 @@
+如何把新修改的代码提交到git仓库：
+
+$git pull origin develop    获取git仓库中develop分支中的commit
+如果提示有冲突：先缓存一下 $git stash  ， 再拉取 $git pull origin develop
+$git stash apply  把先前缓存的拿出来
+$git add .把修改的所有文件提交到暂存区
+$git commit -m '自己起一个名字，一般是你具体改了什么'    提交暂存区的文件
+$git push origin develop  提交
+
+git config --list： 查看git设置
+设置用户名:git config --global user.name 'Mr-Li666'
+设置邮箱：gir config --global user.email '630836058@qq.com'
+查看状态： git status
+克隆： git clone 仓库地址
+
+？？？？？？？？？？？？？
+the requested url returned error:403 forbidden while accessing
+私有项目 没有权限 输入用户名和密码。或者远程地址采用这种类型
+解决：配置文件打开后 修改
+[remote "origin"]
+ 	url = https://github.com/用户名/仓库名.git
+
+修改为：
+[remote "origin"]
+ url = https://用户名：密码@github.com/用户名/仓库名.git
+
+本地关联远程仓库： git remote add 标识名（origin）  仓库地址
+将本地仓库内容上传到远程仓库：git push 标识名（origin）分支名（master、develop）
+将远程仓库内容下载到本地仓库：git pull   标识名（origin）分支名（master、develop）
+将远程仓库复制到本地，并自动形成一个仓库：git clone 远程地址
+查看分支：git branch
+新建一个分支：git branch develop
+切换分支：git checkout develop
+查看分支日志（简易日志）：git log --oneline    完整日志：git log
+分支合并：git merge 分支a  合并分支a
+分支合并的两种方式：
+（1）快速合并：主分支没动
+（2）三方合并：
+
+合并分支时产生冲突：
+
+
+1. 新建一个仓库，然后将本地代码提交上去（此时仓库没有东西，是一个裸仓）
+（1）在github上建一个仓库，然后复制一下地址
+（2）在你要传的文件夹里，git bash here，先git init生成一个本地仓库，用于追踪本地文件的
+（3）将本地仓库和远程仓库关联：git remote add origin github地址
+（4）git remote -v  查看关联的地址。 然后git add .  提交到暂存区
+（5）git commit -m"说明一下"
+（6）git pull --rebase origin master 。 一定要加这句，否则会报错。是因为github中有readme文件，这个文件此时不在这个仓库。通过这个命令可以进行合并
+（7）git push origin master
+
+2. 此时仓库有东西后，将代码拉下来再传上去
+（1） git clone 仓库地址
+（2）改动了之后，可以git status 看一下，哪个文件改动了，然后再上传 git add test.txt
+（3）git commit -m"说明一下"
+（4）git push origin master
