@@ -1,0 +1,8 @@
+如何把新修改的代码提交到git仓库：
+
+$git pull origin develop    获取git仓库中develop分支中的commit
+如果提示有冲突：先缓存一下 $git stash  ， 再拉取 $git pull origin develop
+$git stash apply  把先前缓存的拿出来
+$git add .把修改的所有文件提交到暂存区
+$git commit -m '自己起一个名字，一般是你具体改了什么'    提交暂存区的文件
+$git push origin develop  提交
